@@ -30,7 +30,7 @@ export default class TodoList extends Component {
 
   renderTodos() {
     return this.state.todos.map((todo, i) => {
-      return <TodoListItem todo={todo} key={i} />
+      return <TodoListItem todo={todo} index={i} key={i} onDeleteTodo={this.onDeleteTodo.bind(this)} />
     });
   }
 
