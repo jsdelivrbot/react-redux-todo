@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TodoListItem from './TodoListItem';
 
 export default class TodoList extends Component {
   constructor(props) {
@@ -27,6 +28,12 @@ export default class TodoList extends Component {
     this.setState({ todos: [...todos.slice(0, index), ...todos.slice(index + 1)] });
   }
 
+  renderTodos() {
+    return this.state.todos.map((todo, i) => {
+      return <TodoListItem todo={todo} key={i} />
+    });
+  }
+
   render() {
     console.log(this.state.todos);
     return (
@@ -39,6 +46,9 @@ export default class TodoList extends Component {
           </div>
           <button type="submit" className="btn btn-primary">Add</button>
         </form>
+        <ul className="list-group">
+          {this.renderTodos()}
+        </ul>
       </div>
     );
   }
