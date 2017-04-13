@@ -19,7 +19,7 @@ export default class TodoList extends Component {
     if (!this.state.input) {
       alert('Todo cannot be blank!');
     } else {
-      this.setState({ todos: this.state.todos.concat(this.state.input) });
+      this.setState({ todos: this.state.todos.concat(this.state.input), input: '' });
     }
   }
 
@@ -35,7 +35,6 @@ export default class TodoList extends Component {
   }
 
   render() {
-    console.log(this.state.todos);
     return (
       <div>
         <form onSubmit={this.onFormSubmit.bind(this)}>
